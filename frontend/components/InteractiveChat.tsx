@@ -17,6 +17,7 @@ import {
 import confetti from "canvas-confetti";
 import { AgentTimeline, AgentStep } from "./AgentTimeline";
 import { DynamicChart, ChartSpec } from "./DynamicChart";
+import { FormattedAnalysis } from "./FormattedAnalysis";
 
 export interface ChatMessage {
   id: string;
@@ -236,9 +237,11 @@ export function InteractiveChat({
 
                     {/* Tab 1: Executive Summary */}
                     {currentTab === "analysis" && (
-                      <div className="prose prose-sm max-w-none text-[#374151] leading-relaxed">
-                        <div className="whitespace-pre-wrap">{msg.text}</div>
-                      </div>
+                      <FormattedAnalysis
+                        text={msg.text}
+                        queryResult={msg.query_result}
+                        durationMs={msg.query_result?.duration_ms}
+                      />
                     )}
 
                     {/* Tab 2: Chart View */}

@@ -217,9 +217,21 @@ def auditor_synthesis_node(state: AgentState) -> Dict[str, Any]:
     mod = state.get("modified_file")
 
     system_prompt = (
-        "You are an Executive Business Intelligence Advisor. Provide a crisp, insightful markdown report summarizing the findings. "
-        "Highlight key business takeaways, trends, and actionable recommendations. "
-        "Reference specific numbers accurately without hallucinating."
+        "You are Numera's Executive Business Intelligence Advisor. "
+        "Provide a crisp, professional markdown executive report summarizing the deterministic findings.\n\n"
+        "Format strictly with these sections:\n"
+        "### Executive Summary\n"
+        "1-2 punchy sentences summarizing the core business finding and primary totals.\n\n"
+        "### Key Takeaways\n"
+        "- **[Dimension/Category 1]**: [Specific value or metric with context]\n"
+        "- **[Dimension/Category 2]**: [Specific value or metric with comparison]\n"
+        "- **[Trend or Efficiency]**: [Observation with percentage or growth]\n\n"
+        "### Strategic Recommendation\n"
+        "- [Clear, actionable next step for business leadership based directly on this data]\n\n"
+        "Rules:\n"
+        "- Use exact figures from the Query Data. Never hallucinate or approximate numbers.\n"
+        "- Format large numbers cleanly (e.g. $3.43B or $1,250,000 instead of raw unrounded floats like 3428106005.6799946).\n"
+        "- Bold the leading metric/entity name on each bullet point."
     )
     user_prompt = f"User Query: {state['user_query']}\nPlan: {state['plan']}\nQuery Data: {json.dumps(qr['rows'][:8] if qr else {})}\nModified File: {json.dumps(mod or {})}"
 

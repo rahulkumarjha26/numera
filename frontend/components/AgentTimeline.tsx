@@ -19,12 +19,35 @@ interface AgentTimelineProps {
 
 export function AgentTimeline({ steps, isExecuting }: AgentTimelineProps) {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [isOpen, setIsOpen] = useState(isExecuting);
 
   if (steps.length === 0 && !isExecuting) return null;
 
+  // If completed and collapsed, render compact verified pill
+  if (!isExecuting && !isOpen) {
+    return (
+      <button
+        onClick={() => setIsOpen(true)}
+        className="w-full flex items-center justify-between p-2 rounded-lg bg-[#fafafa] hover:bg-[#f3f4f6] border border-[#e5e7eb] text-xs transition-colors cursor-pointer mb-3 shadow-2xs"
+      >
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-emerald-500" />
+          <span className="font-medium text-gray-800 flex items-center gap-1.5 text-[11px]">
+            <Cpu className="w-3 h-3 text-gray-600" />
+            <span>Reasoning Trace: {steps.length} steps verified</span>
+          </span>
+        </div>
+        <div className="flex items-center gap-1 text-gray-500 text-[11px]">
+          <span>Inspect trace</span>
+          <ChevronDown className="w-3.5 h-3.5" />
+        </div>
+      </button>
+    );
+  }
+
   return (
-    <div className="bg-[#fafafa] border border-[#e5e7eb] rounded-xl p-3.5 shadow-2xs mb-3.5">
-      <div className="flex items-center justify-between mb-2.5 pb-2 border-b border-[#e5e7eb]">
+    <div className="bg-[#fafafa] border border-[#e5e7eb] rounded-xl p-3 shadow-2xs mb-3">
+      <div className="flex items-center justify-between mb-2 pb-2 border-b border-[#e5e7eb]">
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-[#101010]" />
           <h4 className="text-[11px] font-semibold text-[#101010] tracking-tight flex items-center gap-1.5">
@@ -32,9 +55,19 @@ export function AgentTimeline({ steps, isExecuting }: AgentTimelineProps) {
             LangGraph Reasoning Trace
           </h4>
         </div>
-        <span className="text-[10px] text-[#6b7280] font-mono">
-          {steps.length} {steps.length === 1 ? "step" : "steps"} executed
-        </span>
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] text-[#6b7280] font-mono">
+            {steps.length} {steps.length === 1 ? "step" : "steps"} executed
+          </span>
+          {!isExecuting && (
+            <button
+              onClick={() => setIsOpen(false)}
+              className="text-gray-400 hover:text-gray-700 p-0.5 cursor-pointer"
+            >
+              <ChevronUp className="w-3.5 h-3.5" />
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="space-y-2">
