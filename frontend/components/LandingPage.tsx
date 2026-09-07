@@ -44,6 +44,19 @@ export function LandingPage({
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const setup = params.get("setup");
+      if (setup === "ollama" || setup === "quickstart" || setup === "offline") {
+        setSetupTab(setup);
+        setTimeout(() => {
+          document.getElementById("setup-guide")?.scrollIntoView({ behavior: "instant", block: "center" });
+        }, 150);
+      }
+    }
+  }, []);
+
   const copyCode = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
     setCopiedCode(id);

@@ -69,11 +69,20 @@ Numera parses the data types, dimensions, and business metrics of **any uploaded
 ### 4. Deterministic Query Execution & Code Inspector
 Inspect the generated DuckDB SQL, verify execution time (sub-20ms), view interactive Recharts visualizations, and download mutated Excel workbooks.
 
-![Query Execution](docs/screenshots/payroll_query_result.png)
+![Query Execution Visuals](docs/screenshots/payroll_query_result.png)
+
+![Generated SQL Inspector](docs/screenshots/query_execution_sql.png)
 
 ---
 
-### 5. Live AI Environment Diagnostics
+### 5. Automated Executive Briefings & Tabular Synthesis
+Synthesize complex multidimensional data into structured executive briefs with automated margin calculation, statistical highlights, and strategic recommendations.
+
+![Executive Analysis](docs/screenshots/executive_analysis.png)
+
+---
+
+### 6. Live AI Environment Diagnostics
 The workspace header features an interactive connection pill that auto-detects local Ollama daemons, monitors GPU execution, and offers 1-click model setup.
 
 ![Ollama Popover](docs/screenshots/ollama_status_popover.png)

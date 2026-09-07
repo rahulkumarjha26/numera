@@ -31,6 +31,13 @@ export function Header({
   const [copiedCmd, setCopiedCmd] = React.useState(false);
 
   React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("popover") === "ollama") {
+        setShowSetupModal(true);
+      }
+    }
+
     const fetchStatus = async () => {
       try {
         const res = await fetch("http://localhost:8000/api/llm-status");
@@ -147,7 +154,7 @@ export function Header({
               ) : (
                 <div className="space-y-2.5 text-[#4b5563]">
                   <p className="leading-relaxed">
-                    Numera Pro is currently using its <strong>Built-in Offline Engine</strong> (sub-20ms DuckDB OLAP with zero setup).
+                    Numera is currently using its <strong>Built-in Offline Engine</strong> (sub-20ms DuckDB OLAP with zero setup).
                   </p>
                   <p className="text-[11px] text-[#6b7280]">
                     To connect local generative AI, run this 1 command in your terminal:

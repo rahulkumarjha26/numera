@@ -140,3 +140,8 @@ body {
   font-weight: 600;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
 }
+
+/* Hide Next.js Dev Indicator Portal */
+nextjs-portal, [data-nextjs-toast], div[data-nextjs-dialog-overlay] {
+  display: none !important;
+}

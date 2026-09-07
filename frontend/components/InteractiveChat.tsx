@@ -75,6 +75,17 @@ export function InteractiveChat({
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+
+    if (typeof window !== "undefined" && messages.length > 0) {
+      const params = new URLSearchParams(window.location.search);
+      const tabParam = params.get("tab") as "analysis" | "chart" | "sql" | "table" | null;
+      if (tabParam) {
+        const lastMsg = messages[messages.length - 1];
+        if (lastMsg.id) {
+          setActiveTab((prev) => ({ ...prev, [lastMsg.id]: tabParam }));
+        }
+      }
+    }
   }, [messages, activeSteps]);
 
   const handleSubmit = (e: React.FormEvent) => {
