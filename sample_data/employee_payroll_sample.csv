@@ -1,0 +1,16 @@
+employee_id,employee_name,department,job_title,salary,annual_bonus,performance_score,hire_date,office_location
+EMP-1001,Sarah Jenkins,Engineering,Senior Architect,165000,24000,4.8,2021-03-15,San Francisco
+EMP-1002,Marcus Chen,Marketing,Growth Lead,115000,12500,4.2,2022-06-01,New York
+EMP-1003,Priya Sharma,Engineering,Backend Engineer,142000,18000,4.6,2020-11-10,Austin
+EMP-1004,David Rodriguez,Sales,Account Executive,98000,35000,4.5,2023-01-20,Chicago
+EMP-1005,Aisha Patel,Finance,Financial Analyst,105000,15000,4.1,2021-09-05,New York
+EMP-1006,Liam O'Connor,Human Resources,HR Business Partner,92000,8000,3.9,2022-04-12,San Francisco
+EMP-1007,Elena Rostova,Engineering,Staff Engineer,185000,32000,4.9,2019-08-18,San Francisco
+EMP-1008,Tariq Mansoor,Design,Lead Product Designer,135000,16000,4.4,2021-02-28,Austin
+EMP-1009,Hannah Abbott,Sales,Enterprise Director,175000,55000,4.7,2020-05-14,Chicago
+EMP-1010,Carlos Gomez,Finance,Controller,155000,22000,4.3,2018-10-01,New York
+EMP-1011,Jennifer Wu,Engineering,DevOps Lead,148000,20000,4.6,2021-07-22,San Francisco
+EMP-1012,Robert Vance,Marketing,Content Strategist,88000,7500,3.8,2023-03-10,Austin
+EMP-1013,Ananya Iyer,Product,Principal PM,168000,26000,4.8,2020-01-15,New York
+EMP-1014,Kevin Miller,Customer Support,Support Manager,85000,9000,4.0,2022-08-30,Chicago
+EMP-1015,Zoe Kravitz,Engineering,Frontend Engineer,128000,14000,4.3,2022-10-05,San Francisco

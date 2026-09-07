@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+:root {
+  /* Cal.com Design System ("Monochrome Utility, Human Touch") */
+  --canvas: #f9fafb;
+  --surface-white: #ffffff;
+  --surface-muted: #f3f4f6;
+  --surface-subtle: #f9fafb;
+  
+  /* Typography & Contrasts */
+  --ink-primary: #101010;
+  --graphite: #18181b;
+  --slate: #6b7280;
+  --stone: #9ca3af;
+  --silver: #e5e7eb;
+  --hairline: #e2e4e8;
+  
+  /* Cal.com Functional Accents */
+  --action-blue: #0099ff;
+  --action-blue-hover: #0088ee;
+  --action-blue-light: #eff6fe;
+  --emerald-privacy: #10b981;
+  --amber-warning: #f59e0b;
+  
+  /* Borders & Shadows */
+  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+  --elevated-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+  --modal-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+body {
+  background-color: var(--canvas);
+  color: var(--graphite);
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Cal Sans", "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tabular Numerics for Financial & Quantitative Data */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Minimalist Clean Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Cal.com Design Tokens & Component Styles */
+.cal-card {
+  background: #ffffff;
+  border: 1px solid var(--silver);
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cal-card-hover:hover {
+  border-color: #d1d5db;
+  box-shadow: var(--elevated-shadow);
+}
+
+.cal-button-primary {
+  background: var(--ink-primary);
+  color: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cal-button-primary:hover {
+  background: #262626;
+  transform: translateY(-0.5px);
+}
+.cal-button-primary:active {
+  transform: translateY(0.5px) scale(0.99);
+}
+
+.cal-button-secondary {
+  background: #ffffff;
+  color: var(--graphite);
+  border: 1px solid var(--silver);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cal-button-secondary:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  color: var(--ink-primary);
+}
+.cal-button-secondary:active {
+  transform: scale(0.99);
+}
+
+.cal-button-blue {
+  background: var(--action-blue);
+  color: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 2px 0 rgba(0, 153, 255, 0.2);
+  transition: all 0.15s ease;
+}
+.cal-button-blue:hover {
+  background: var(--action-blue-hover);
+}
+
+/* Cal.com Segmented Controls */
+.cal-tabs-container {
+  background: #f3f4f6;
+  border: 1px solid var(--silver);
+  border-radius: 10px;
+  padding: 3px;
+  display: inline-flex;
+}
+.cal-tab-item {
+  border-radius: 8px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--slate);
+  transition: all 0.15s ease;
+}
+.cal-tab-item:hover {
+  color: var(--ink-primary);
+}
+.cal-tab-item.active {
+  background: #ffffff;
+  color: var(--ink-primary);
+  font-weight: 600;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+}
